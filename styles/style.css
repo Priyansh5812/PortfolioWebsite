@@ -4,6 +4,7 @@
     --link-color: rgb(235, 132, 248);
     --link-hover-color: rgb(255, 252, 89);
     --background-color: rgb(0, 12, 24);
+    --line-color: rgb(19, 5, 146);
 }
 
 *
@@ -93,7 +94,7 @@ nav .right a i
     margin: 40px 0;
     margin-bottom: 75px;
     align-items: center;
-    gap:40px;
+    gap:50px;
 }
 
 .hero .text h2
@@ -103,9 +104,10 @@ nav .right a i
 
 .hero .text p:nth-child(2)
 {
-    font-size:22px;
+    font-size:18px;
     margin-bottom: 20px;
     color:#2a9ea5;
+    font-family: 'Consolas';
 }
 
 .hero .text .links
@@ -131,6 +133,8 @@ nav .right a i
     border-radius:10px;
 }
 
+
+
 .hero .text
 {
     flex:5;
@@ -142,6 +146,7 @@ nav .right a i
     display:flex;
     flex-direction: column;
     justify-content: right;
+    align-items: center;
 }
 
 .hero .headshot button
@@ -156,7 +161,7 @@ nav .right a i
     border-radius: 30px;;
     border:1.5px solid black;
     gap:10px;
-    
+    transition: 750ms;
 }
 
 .hero .headshot button span
@@ -177,6 +182,13 @@ nav .right a i
     width:350px;
     border-radius: 100%;
 }
+
+.hero .headshot :hover
+{
+    background-color: #6a1887;
+    transition: 750ms;
+}
+
 
 /* SKILLS */
 .skills
@@ -247,6 +259,9 @@ nav .right a i
     padding: 0px 50px;
     margin-bottom: 100px;
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Experience h2
@@ -254,6 +269,113 @@ nav .right a i
     text-align: center;
     font-size: 45px;   
 }
+
+.Experience > p
+{   
+    margin-top: 50px;
+    font-size:25px;
+    padding-right: 100px;
+    color:rgba(71, 71, 71, 0.534);
+}
+.Experience .line-container
+{
+    display: flex;
+    justify-content: center;
+    height: 160vh;
+    margin-top: 20px;
+    margin-right: 245px;
+}
+.line{
+    width: 2px;
+    height: 100%;
+    background: rgba(255,0,0,0.3);
+    background: linear-gradient(to top, transparent, var(--line-color), transparent);
+    
+}
+
+.glow{
+    background: linear-gradient(to top, transparent, var(--line-color), transparent);
+    box-shadow: 
+        0 0 10px var(--line-color),
+        0 0 20px var(--line-color),
+        0 0 40px var(--line-color);
+}
+
+.timeline-item{
+    position: relative;
+    margin-top: 100px;
+}
+
+.content-box
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.content-box h1
+{
+    font-size:medium;
+}
+
+.content-box .comp-desc
+{   display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    gap:20px;
+    font-size:small;
+    margin-top:5px;
+}
+
+.comp-content ul{
+    padding: 10px 20px;
+    font-size:15px;
+}
+
+.comp-content ul > li
+{
+    padding-top:12px;
+    padding-bottom:12px;
+}
+
+.circle{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-37%);
+    
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    background: var(--line-color);
+    box-shadow: 0 0 10px var(--line-color);
+}
+
+.content-box{
+    margin-left: 40px;
+    width: 300px;
+    padding: 20px;
+
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+
+    color: white;
+}
+
+/* Work Highlights */
+.Work-Highlights
+{
+    color : var(--text-color);
+    display: flex;
+    justify-content: center;
+}
+
+.Work-Highlights > h2
+{
+    font-size:xx-large;
+    margin-bottom:25px;
+}
+
 
 @media(max-width:768px)
 {   
@@ -329,3 +451,20 @@ nav .right a i
     
 }
 
+@media(max-width:450px)
+{
+    .content-box
+    {   
+        margin-left: 30px;
+        width: 250px;
+    }
+
+    .content-box .comp-desc{
+        font-size:12px;
+    }
+
+    .Experience .line-container
+    {
+        height: 175vh;
+    }
+}
