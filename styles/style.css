@@ -2,6 +2,7 @@
 {
     --text-color: rgb(255, 255, 255);
     --link-color: rgb(235, 132, 248);
+    --link-hover-color: rgb(255, 252, 89);
     --background-color: rgb(0, 12, 24);
 }
 
@@ -17,6 +18,8 @@ html
     scroll-behavior:smooth;
 }
 
+
+
 body
 {
     font-family:"Baloo Bhaijaan 2" , 'sans-serif';
@@ -27,6 +30,15 @@ a
 {
     color:var(--link-color);
     text-decoration: none;
+}
+
+hr
+{
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #4a008d, transparent);
+    border: none;
+    margin: 60px auto;
 }
 
 /* NAVBAR */
@@ -42,17 +54,18 @@ nav
 
 nav .left
 {
-    color:var(--text-color);
     font-size:x-large;
     font-weight:600;
+    color:var(--text-color);
 }
 
 nav .right a
 {
     color:var(--link-color);
     margin: 0px 10px;
-    font-size:medium;
+    font-size:large;
     font-weight:600;
+
 }
 
 nav .right a:last-child
@@ -63,12 +76,186 @@ nav .right a:last-child
     border-radius:10px;
 }
 
+
 nav .right a i
 {  
     margin-right:10px;
 }
 
-@media(max-width:675px)
+/* SECTION-1 (INTRO) */
+
+.hero
+{
+    color:var(--text-color);
+    display: flex;
+    justify-content:space-between;
+    padding: 0 50px;
+    margin: 40px 0;
+    margin-bottom: 75px;
+    align-items: center;
+    gap:40px;
+}
+
+.hero .text h2
+{
+    font-size:45px;
+}
+
+.hero .text p:nth-child(2)
+{
+    font-size:22px;
+    margin-bottom: 20px;
+    color:#2a9ea5;
+}
+
+.hero .text .links
+{
+    margin:20px 0px;
+}
+
+.hero .text .links a
+{
+    display: inline-block;
+    padding: 5px 20px;
+    border: 2px solid var(--link-color);
+    border-radius:20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 250ms;
+}
+
+.hero .text .links a:hover
+{
+    color:var(--link-hover-color);
+    border: 2px solid var(--link-hover-color);
+    border-radius:10px;
+}
+
+.hero .text
+{
+    flex:5;
+}
+
+.hero .headshot
+{
+    flex:2;
+    display:flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.hero .headshot button
+{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    padding:5px 25px;
+    align-self: center;
+    background-color: #5b1faa;
+    border-radius: 30px;;
+    border:1.5px solid black;
+    gap:10px;
+    
+}
+
+.hero .headshot button span
+{
+    font-size:large;
+    font-weight:bold;
+    color:white;
+}
+
+.hero .headshot button img
+{
+    max-width: 35px;
+    max-height: 35px;
+}
+
+.hero .headshot img
+{   
+    width:350px;
+    border-radius: 100%;
+}
+
+/* SKILLS */
+.skills
+{
+    color:var(--text-color);
+    padding: 0px 50px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.skills h2
+{
+    text-align: center;
+    font-size: 45px;   
+}
+
+.skills .text
+{
+    text-align: center;
+}
+
+.skills h1
+{   
+    padding-top:50px;
+    text-align: center;
+
+}
+
+.skills .main-cells
+{   
+    display: flex;
+    justify-content: center; 
+    flex-wrap:wrap;  
+}
+
+
+.skills .main-cells .cell
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    padding: 10px 20px;
+    border: 2px solid rgb(0, 66, 141);
+    border-radius:30px; 
+    margin:10px;
+    gap:10px;
+}
+
+
+.skills .main-cells .cell img
+{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.skills .main-cells .cell span
+{
+    font-size:medium;
+}
+
+
+/* EXPERIENCE */
+.Experience
+{
+    color:var(--text-color);
+    padding: 0px 50px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.Experience h2
+{
+    text-align: center;
+    font-size: 45px;   
+}
+
+@media(max-width:768px)
 {   
     /* NAVBAR */
     nav
@@ -78,8 +265,10 @@ nav .right a i
 
     nav .right a
     {
-        font-size:32px;
+        font-size:25px;
+        margin: 0px;
     }
+
 
     nav .right a:last-child
     {   
@@ -92,5 +281,51 @@ nav .right a i
     {
         display:none;
     }
+    
 
+    /* HERO */
+    .hero
+    {
+        flex-direction: column-reverse;
+    }
+
+    .hero .text h2
+    {
+        font-size: 35px;
+    }
+
+    .hero .headshot img
+    {
+        width:275px;
+    }
 }
+
+@media(max-width: 425px)
+{   
+    /* NAVBAR */
+    nav .right a
+    {
+        font-size:22px;
+        margin: 0px;
+    }
+
+    /* HERO */
+    nav .left
+    {
+        font-size:19px;
+        font-weight:600;
+    }
+
+    .hero .headshot img
+    {
+        width:240px;
+    }
+
+    /* SKILLS */
+    .skills .main-cells .cell span
+    {
+        font-size:small;
+    }    
+    
+}
+
