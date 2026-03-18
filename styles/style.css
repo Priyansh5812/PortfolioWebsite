@@ -3,7 +3,7 @@
     --text-color: rgb(255, 255, 255);
     --link-color: rgb(235, 132, 248);
     --link-hover-color: rgb(255, 252, 89);
-    --background-color: rgb(0, 12, 24);
+    --background-color: rgb(0, 11, 22);
     --line-color: rgb(19, 5, 146);
 }
 
@@ -116,7 +116,7 @@ nav .right a i
 }
 
 .hero .text .links a
-{
+{   
     display: inline-block;
     padding: 5px 20px;
     border: 2px solid var(--link-color);
@@ -124,6 +124,11 @@ nav .right a i
     margin-right: 10px;
     margin-bottom: 10px;
     transition: 250ms;
+}
+
+.hero .text .links a > i
+{
+    padding-right:25px;
 }
 
 .hero .text .links a:hover
@@ -161,7 +166,7 @@ nav .right a i
     border-radius: 30px;;
     border:1.5px solid black;
     gap:10px;
-    transition: 750ms;
+    transition: 250ms;
 }
 
 .hero .headshot button span
@@ -186,7 +191,7 @@ nav .right a i
 .hero .headshot :hover
 {
     background-color: #6a1887;
-    transition: 750ms;
+    transition: 250ms;
 }
 
 
@@ -270,6 +275,14 @@ nav .right a i
     font-size: 45px;   
 }
 
+.Experience h2 p
+{
+    font-size:large;
+    font-family: 'Consolas';
+    color:#2a9ea5;
+
+}
+
 .Experience > p
 {   
     margin-top: 50px;
@@ -281,7 +294,7 @@ nav .right a i
 {
     display: flex;
     justify-content: center;
-    height: 160vh;
+    height:17in;
     margin-top: 20px;
     margin-right: 245px;
 }
@@ -367,13 +380,192 @@ nav .right a i
 {
     color : var(--text-color);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding:0 50px;
+    margin-bottom: 120px;
 }
 
 .Work-Highlights > h2
 {
-    font-size:xx-large;
-    margin-bottom:25px;
+    font-size:45px;
+}
+
+.Work-Highlights > h1
+{
+    font-size:30px;
+    align-self: flex-start;
+}
+
+.Work-Highlights .work
+{   display: flex;
+    flex-direction: row;
+    gap:20px;
+    justify-content: space-between;
+}
+
+.Work-Highlights .work > video
+{
+    flex:3 3;
+    width:37%;
+    max-width: fit-content;
+    height:fit-content;
+    max-height:300px;
+    border-radius: 5px;
+
+}
+
+.Work-Highlights .work > iframe
+{
+    flex:3 3;
+    width:37%;
+    max-width: fit-content;
+    height:fit-content;
+    max-height:300px;
+    border-radius: 5px;
+
+}
+
+
+.Work-Highlights .work .work-content
+{
+    flex:9;
+    align-items: center;
+}
+
+.competencies
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+
+}
+
+.competencies  p
+{
+    font-weight: bold;
+    font-size:medium;
+    font-family: 'Consolas';
+}
+
+.competencies > div
+{
+    flex:5;
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.competencies img
+{
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.work-hr
+{
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right,transparent, #dddddd, transparent);
+    border: none;
+    margin: 60px auto;
+    
+}
+
+.work-content .Redirection
+{   
+    font-weight: bold;
+    font-size:medium;
+    font-family: 'Consolas';
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10px;
+    margin: 25px 0px;
+}
+.work-content .Redirection a i
+{
+    font-size:25px;
+    color:var(--link-color);
+    transition:125ms;
+}
+
+.work-content .Redirection a i:hover
+{
+    color:var(--link-hover-color);
+    /* font-size:xx-large; */
+    transform:scale(1.25);
+}
+
+
+.Work-Highlights .other-projects
+{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Work-Highlights .other-projects button
+{   
+    display: flex;
+    width:100%;
+    height:150px;
+    border-radius: 32px;
+    border:2px solid var(--link-color);
+    background-color: transparent;
+    color: var(--text-color);
+    font-size:20px;
+    font-family: "Baloo Bhaijaan 2", 'sans-serif';;
+    flex:8 1;
+    flex-wrap: nowrap;
+    padding:10px 20px;
+    align-items: center;
+    gap:10px;
+    transform: scale(1);
+    transition:250ms;
+}
+
+.Work-Highlights .other-projects button:hover
+{
+    background-color: rgb(215, 255, 192);
+    border-color:transparent;
+    color:black;
+    font-weight: bold;
+}
+
+.Work-Highlights .other-projects button:active
+{
+    transform: scale(0.75);
+}
+
+@media(max-width:980px)
+{
+        
+    .Work-Highlights .work
+    {
+        flex-direction: column-reverse;
+    }
+    .Work-Highlights .work .work-content
+    {
+        flex:1;
+    }
+
+    .Work-Highlights .work video
+    {
+        width:50%;
+        align-self: center;
+    }
+    
+    .Work-Highlights .work iframe
+    {
+        width:50%;
+        align-self: center;
+    }
 }
 
 
@@ -420,6 +612,23 @@ nav .right a i
     {
         width:275px;
     }
+
+    /* WORKS */
+
+    .Work-Highlights .work img
+    {
+        width:60%;
+    }
+
+    .Work-Highlights .work video
+    {
+        width:80%
+    }
+    
+    .Work-Highlights .work iframe
+    {
+        width:80%
+    }
 }
 
 @media(max-width: 425px)
@@ -448,11 +657,11 @@ nav .right a i
     {
         font-size:small;
     }    
-    
 }
 
 @media(max-width:450px)
-{
+{   
+    /* EXPERIENCE */
     .content-box
     {   
         margin-left: 30px;
@@ -463,8 +672,4 @@ nav .right a i
         font-size:12px;
     }
 
-    .Experience .line-container
-    {
-        height: 175vh;
-    }
 }
