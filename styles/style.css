@@ -5,6 +5,7 @@
     --link-hover-color: rgb(255, 252, 89);
     --background-color: rgb(0, 11, 22);
     --line-color: rgb(19, 5, 146);
+    --key-word-color: rgb(220 156 255);
 }
 
 *
@@ -42,6 +43,8 @@ hr
     margin: 60px auto;
 }
 
+
+
 /* NAVBAR */
 
 nav
@@ -60,14 +63,23 @@ nav .left
     color:var(--text-color);
 }
 
+nav .right
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 nav .right a
 {
     color:var(--link-color);
     margin: 0px 10px;
     font-size:large;
     font-weight:600;
-
+    transition:250ms;
 }
+
+
 
 nav .right a:last-child
 {   
@@ -81,6 +93,17 @@ nav .right a:last-child
 nav .right a i
 {  
     margin-right:10px;
+}
+
+nav .right:hover a
+{
+   transform: scale(0.9);
+}
+
+nav .right a:hover
+{
+   transform:scale(1.15);
+   color:var(--text-color);
 }
 
 /* SECTION-1 (INTRO) */
@@ -154,7 +177,7 @@ nav .right a i
     align-items: center;
 }
 
-.hero .headshot button
+.hero .headshot a
 {   
     display: flex;
     justify-content: center;
@@ -164,19 +187,40 @@ nav .right a i
     align-self: center;
     background-color: #5b1faa;
     border-radius: 30px;;
-    border:1.5px solid black;
+    border:transparent;
     gap:10px;
-    transition: 250ms;
+    transition: 125ms;
+    transform:scale(1);
+    color:var(--text-color);
+    box-shadow:
+    0 0 10px rgba(234, 0, 255, 0.15),
+    0 0 20px rgba(234, 0, 255, 0.15),
+    0 0 40px rgba(234, 0, 255, 0.15);
+}
+.hero .headshot a:hover
+{
+    transform:scale(1.125);
+    background-color: rgb(231, 231, 231);
+    color:black;
 }
 
-.hero .headshot button span
+.hero .headshot a:active
+{
+    transform:scale(0.95);
+}
+
+.hero .headshot a:hover img
+{
+    filter: brightness(0) invert(0); /* black */
+}
+
+.hero .headshot a span
 {
     font-size:large;
     font-weight:bold;
-    color:white;
 }
 
-.hero .headshot button img
+.hero .headshot a img
 {
     max-width: 35px;
     max-height: 35px;
@@ -188,11 +232,6 @@ nav .right a i
     border-radius: 100%;
 }
 
-.hero .headshot :hover
-{
-    background-color: #6a1887;
-    transition: 250ms;
-}
 
 
 /* SKILLS */
@@ -294,7 +333,7 @@ nav .right a i
 {
     display: flex;
     justify-content: center;
-    height:17in;
+    height:15in;
     margin-top: 20px;
     margin-right: 245px;
 }
@@ -412,7 +451,6 @@ nav .right a i
     height:fit-content;
     max-height:300px;
     border-radius: 5px;
-
 }
 
 .Work-Highlights .work > iframe
@@ -497,51 +535,304 @@ nav .right a i
 .work-content .Redirection a i:hover
 {
     color:var(--link-hover-color);
-    /* font-size:xx-large; */
     transform:scale(1.25);
 }
 
 
-.Work-Highlights .other-projects
+
+.keywords
 {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    color:var(--key-word-color);
+    font-weight:bold;
 }
 
-.Work-Highlights .other-projects button
-{   
+
+.work-buttons
+{
     display: flex;
-    width:100%;
-    height:150px;
-    border-radius: 32px;
-    border:2px solid var(--link-color);
-    background-color: transparent;
-    color: var(--text-color);
-    font-size:20px;
-    font-family: "Baloo Bhaijaan 2", 'sans-serif';;
-    flex:8 1;
-    flex-wrap: nowrap;
-    padding:10px 20px;
-    align-items: center;
-    gap:10px;
-    transform: scale(1);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width:99vw;
+    margin-top: 20px;
+}
+
+.hidden-text-1
+{   
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 
+        max-height 250ms ease,
+        opacity 250ms ease;
+}
+
+.hidden-text-2
+{   
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 
+        max-height 250ms ease,
+        opacity 250ms ease;
+}
+
+.active
+{      
+    opacity: 1;
+}
+
+.show-more-btn-1
+{
+    padding:5px 15px;
+    border-radius:32px;
+    border:transparent;
+    background-color: var(--link-color) ;
+    color:black;
+    margin-top: 20px;
     transition:250ms;
 }
 
-.Work-Highlights .other-projects button:hover
+.show-more-btn-1:hover
 {
-    background-color: rgb(215, 255, 192);
-    border-color:transparent;
-    color:black;
-    font-weight: bold;
+    padding:7px 20px;
+    font-size:large;
+    background-color: white
 }
 
-.Work-Highlights .other-projects button:active
+
+.show-more-btn-2
 {
-    transform: scale(0.75);
+    padding:5px 15px;
+    border-radius:32px;
+    border:transparent;
+    background-color: var(--link-color) ;
+    color:black;
+    margin-top: 20px;
+    transition:250ms;
 }
+
+.show-more-btn-2:hover
+{
+    padding:7px 20px;
+    font-size:large;
+    background-color: white
+}
+
+
+.show-more-btn-1 > span
+{
+   font-weight: bold;
+   font-family:"Baloo Bhaijaan 2" , 'sans-serif';;
+}
+
+.show-more-btn-2 > span
+{
+   font-weight: bold;
+   font-family:"Baloo Bhaijaan 2" , 'sans-serif';;
+}
+
+
+/* HIRE ME */
+.HireMe
+{   display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color:var(--text-color);
+    align-items: center;
+    margin-bottom: 30px;
+
+}
+
+.HireMe h2
+{
+    font-size: 45px;
+
+}
+
+.HireMe p
+{
+    font-size:17px;
+    margin:10px 0px;
+    padding:0px 50px;
+}
+
+.HireMe .column-container
+{
+    display: flex;
+    gap: 120px; 
+    padding: 50px;
+    flex-wrap: wrap;
+    max-width: 1350px;
+}
+
+.column
+{   
+    flex:1 1;
+    display: flex;
+    flex-direction: column; /* vertical stacking */
+    gap: 16px; /* space between heading, desc, bullets */
+    border-radius: 25px; /* clean, modern radius */
+    background-color: #1a1923; /* optional, helps the radius show */
+
+    border: 1px solid rgba(234, 0, 255, 0.6);
+
+    box-shadow:
+        0 0 10px rgba(234, 0, 255, 0.6),
+        0 0 20px rgba(234, 0, 255, 0.6),
+        0 0 40px rgba(234, 0, 255, 0.6);
+
+    transition:250ms;
+}
+
+.column:nth-child(2)
+{
+    border: 1px solid rgba(255, 0, 140, 0.6);
+    box-shadow:
+    0 0 10px rgba(255, 0, 140, 0.6),
+    0 0 20px rgba(255, 0, 140, 0.6),
+    0 0 40px rgba(255, 0, 140, 0.6);
+}
+
+.column h2
+{
+    margin: 0;
+    font-size: 32px;
+    text-decoration: underline;
+    font-weight: 500;
+    text-align: center; /* centers heading only */
+}
+
+.column p
+{
+    margin: 0;
+    opacity: 0.8;
+    padding: 0px 30px;
+}
+
+.column ul
+{
+    margin-bottom: 20px;
+    padding-left: 47px;
+}
+
+.column a
+{   display: flex;
+    align-self: center;
+    justify-content: center;
+    border: 1px solid var(--link-color);
+    font-size:20px;
+    padding:10px 12px;
+    border-radius:32px;
+    margin-bottom: 20px;
+    background-color: var(--link-color);
+    max-height: 50px;
+    color:black;
+    font-weight: bold;
+    transform:scale(1);
+    align-items: center;
+    transition: 125ms;
+    margin-top: auto;
+
+}
+
+
+.column a p
+{
+    padding-top: 2px;
+    font-size: 19px;;
+    text-align: center;
+}
+
+
+.column a:hover
+{
+    background-color: white;
+    border-color: transparent;
+    transform: scale(1.125);
+}
+
+.column a:active
+{
+    transform: scale(0.95);
+}
+
+/* Footer */
+footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-family: "Baloo Bhaijaan 2", 'sans-serif';;
+    text-align: center;
+    background-color: var(--background-color);
+    height:120px;
+}
+
+.footer-hr
+{   
+    width:99%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, transparent, #ffffff, transparent);
+    margin-top: 45px;
+}
+
+.navigator
+{   
+    display: flex;
+    justify-content:center;
+
+    flex-wrap: wrap;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width:fit-content;
+    background-color: rgba(46, 23, 61, 0.8);
+    padding:10px 20px;
+    border-radius:32px;
+    font-weight: bold;
+    font-size:x-large;
+    gap:20px;
+    transition:250ms;
+}
+
+.navigator.active
+{   
+    transform: translateX(-50%) scale(1);
+}
+
+
+.navigator:not(:hover)
+{
+    background-color: rgba(46, 23, 61, 0.2);
+}
+
+.navigator:hover a
+{
+    color:rgb(235, 132, 248 , 1);
+}
+
+.navigator a:not(:hover)
+{
+    color:rgb(235, 132, 248 , 0.5);
+    transform: scale(0.95);
+}
+
+.navigator a:not(:hover)
+{
+    transition:500ms;
+}
+.navigator a:hover
+{
+    transform:scale(1.125);
+}
+
+
 
 @media(max-width:980px)
 {
@@ -629,6 +920,18 @@ nav .right a i
     {
         width:80%
     }
+    
+    /* HIRE ME */
+    .HireMe .column-container
+    {   
+        flex-direction: column;
+        max-width: 500px;
+    }
+
+    .column a p
+    {
+        font-size: 15px;
+    }
 }
 
 @media(max-width: 425px)
@@ -656,20 +959,102 @@ nav .right a i
     .skills .main-cells .cell span
     {
         font-size:small;
-    }    
+    }
+    
+    /* WORKS */
+    .Work-Highlights .work img
+    {
+        width:30%;
+    }
+
+
+    
+
+}
+
+@media(max-width:420px)
+{
+    .navigator
+    {
+        padding:10px 10px;
+    }
 }
 
 @media(max-width:450px)
 {   
     /* EXPERIENCE */
+
+    .Experience .line-container
+    {
+        height:20in;
+    }
+
     .content-box
     {   
         margin-left: 30px;
-        width: 250px;
+        width: 230px;
     }
 
     .content-box .comp-desc{
         font-size:12px;
     }
 
+    /* HIRE ME */
+
+    .HireMe h2
+    {
+        font-size: 25px;
+    }
+    .column h2
+    {
+        font-size:20px;
+        padding-top:10px;
+    }
+
+    .column p
+    {
+        font-size:15px;
+    }
+
+    .column ul
+    {
+        font-size:15px;        
+    }
+
+
 }
+
+@media(max-width:350px)
+{
+    .column a p
+    {
+        display: none;
+    }
+
+    .column a
+    {
+        border-radius: 50px;
+    }
+
+
+}
+
+@media(max-width:250px)
+{   
+    .column p
+    {
+        font-size:10px;
+    }
+
+    .column  ul
+    {
+        font-size:10px;
+    }
+
+    .navigator
+    {
+        padding:10px 5px;
+    }
+
+}
+
