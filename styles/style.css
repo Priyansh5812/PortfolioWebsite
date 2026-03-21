@@ -792,7 +792,7 @@ footer
     left: 50%;
     transform: translateX(-50%) scale(0);
     width:fit-content;
-    background-color: rgba(46, 23, 61, 0.8);
+    background-color: rgb(46, 23, 61);
     padding:10px 20px;
     border-radius:32px;
     font-weight: bold;
@@ -806,12 +806,6 @@ footer
     transform: translateX(-50%) scale(1);
 }
 
-
-.navigator:not(:hover)
-{
-    background-color: rgba(46, 23, 61, 0.2);
-}
-
 .navigator:hover a
 {
     color:rgb(235, 132, 248 , 1);
@@ -819,7 +813,7 @@ footer
 
 .navigator a:not(:hover)
 {
-    color:rgb(235, 132, 248 , 0.5);
+    /* color:rgb(235, 132, 248 , 0.5); */
     transform: scale(0.95);
 }
 
