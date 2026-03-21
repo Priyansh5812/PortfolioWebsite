@@ -130,7 +130,8 @@ nav .right a:hover
     font-size:18px;
     margin-bottom: 20px;
     color:#2a9ea5;
-    font-family: 'Consolas';
+    font-weight: bold;
+    font-family: 'Inconsolata';
 }
 
 .hero .text .links
@@ -317,7 +318,8 @@ nav .right a:hover
 .Experience h2 p
 {
     font-size:large;
-    font-family: 'Consolas';
+    font-family: 'Inconsolata';
+    font-weight: bold;
     color:#2a9ea5;
 
 }
@@ -484,7 +486,8 @@ nav .right a:hover
 {
     font-weight: bold;
     font-size:medium;
-    font-family: 'Consolas';
+    font-family: 'Inconsolata';
+    font-weight: bold;
 }
 
 .competencies > div
@@ -518,7 +521,7 @@ nav .right a:hover
 {   
     font-weight: bold;
     font-size:medium;
-    font-family: 'Consolas';
+    font-family: 'Inconsolata';
     display:flex;
     justify-content: flex-start;
     align-items: center;
