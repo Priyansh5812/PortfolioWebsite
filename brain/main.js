@@ -1,5 +1,4 @@
 // #region INIT
-
 const readMoreBtn_1 = document.querySelector('.show-more-btn-1');
 const text_content_1 = document.querySelector('.hidden-text-1');
 
@@ -8,8 +7,15 @@ const text_content_2 = document.querySelector('.hidden-text-2');
 
 const topDiv = document.querySelector('.hero');
 const navigator = document.querySelector('.navigator');
-// #endregion 
 
+
+const mailNormal = document.querySelector('#mail');
+const mailfreelance = document.querySelector('#mail-freelance');
+const mailFullTime = document.querySelector('#mail-fulltime');
+
+const baseMail = "https://mail.google.com/mail/?view=cm&to=priyanshkrkashyap@gmail.com";
+const isMobile = platform.os.family.includes("Android") || platform.os.family.includes("iOS");
+// #endregion 
 // #region Readmore
 
 readMoreBtn_1.addEventListener('click' , (e)=>
@@ -71,3 +77,6 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(topDiv);
 
+mailNormal.href = !isMobile ? baseMail : mailNormal.href;
+mailfreelance.href = !isMobile ? baseMail+"&su=Enquiry%20for%20a%20freelance%20project." : mailfreelance.href;
+mailFullTime.href = !isMobile ? baseMail+"&su=Job%20Proposal%20for%20[Enter%20Designation].":mailFullTime.href;
