@@ -13,7 +13,7 @@ const mailfreelance = document.querySelector('#mail-freelance');
 const mailFullTime = document.querySelector('#mail-fulltime');
 
 const baseMail = "https://mail.google.com/mail/?view=cm&to=priyanshkrkashyap@gmail.com";
-const isMobile = /iPhone|Android/i.test(navigator.userAgent);
+// const isMobile = /iPhone|Android/i.test(navigator.userAgent);
 // #endregion 
 
 // #region Readmore
@@ -80,6 +80,6 @@ observer.observe(topDiv);
 
 
 
-mailNormal.href = !isMobile ? baseMail : mailNormal.href;
-mailfreelance.href = !isMobile ? baseMail+"&su=Enquiry%20for%20a%20freelance%20project." : mailfreelance.href;
-mailFullTime.href = !isMobile ? baseMail+"&su=Job%20Proposal%20for%20[Enter%20Designation].":mailFullTime.href;
+// mailNormal.href = !isMobile ? baseMail : mailNormal.href;
+// mailfreelance.href = !isMobile ? baseMail+"&su=Enquiry%20for%20a%20freelance%20project." : mailfreelance.href;
+// mailFullTime.href = !isMobile ? baseMail+"&su=Job%20Proposal%20for%20[Enter%20Designation].":mailFullTime.href;
