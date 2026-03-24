@@ -1,5 +1,4 @@
 // #region INIT
-
 const readMoreBtn_1 = document.querySelector('.show-more-btn-1');
 const text_content_1 = document.querySelector('.hidden-text-1');
 
@@ -8,10 +7,16 @@ const text_content_2 = document.querySelector('.hidden-text-2');
 
 const topDiv = document.querySelector('.hero');
 const navigator = document.querySelector('.navigator');
+
+const mailNormal = document.querySelector('#mail');
+const mailfreelance = document.querySelector('#mail-freelance');
+const mailFullTime = document.querySelector('#mail-fulltime');
+
+const baseMail = "https://mail.google.com/mail/?view=cm&to=priyanshkrkashyap@gmail.com";
+const isMobile = /iPhone|Android/i.test(navigator.userAgent);
 // #endregion 
 
 // #region Readmore
-
 readMoreBtn_1.addEventListener('click' , (e)=>
     {   
         const span = readMoreBtn_1.querySelector('span');
@@ -50,6 +55,7 @@ readMoreBtn_2.addEventListener('click' , (e)=>
     });
 //#endregion
 
+// #region Observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -70,4 +76,10 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 observer.observe(topDiv);
+// #endregion
 
+
+
+mailNormal.href = !isMobile ? baseMail : mailNormal.href;
+mailfreelance.href = !isMobile ? baseMail+"&su=Enquiry%20for%20a%20freelance%20project." : mailfreelance.href;
+mailFullTime.href = !isMobile ? baseMail+"&su=Job%20Proposal%20for%20[Enter%20Designation].":mailFullTime.href;
