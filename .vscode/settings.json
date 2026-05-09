@@ -1,0 +1,11 @@
+{
+  "css.validate": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "html.validate.scripts": true,
+  "javascript.suggestionActions.enabled": true,
+  "javascript.validate.enable": true
+}

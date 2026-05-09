@@ -464,8 +464,32 @@ nav .right a:hover
     height:fit-content;
     max-height:300px;
     border-radius: 5px;
-
 }
+
+.work-problems-heading
+{
+    color:rgb(255, 88, 88);
+}
+
+.work-problem
+{
+    color:#2a9ea5
+}
+.work-solution
+{
+    color:#9fffa7
+    
+}
+.work-solution-pros
+{
+    color:#f8ff98   
+}
+
+.work-solution-cons
+{
+    color: rgb(255 160 160)
+}
+
 
 
 .Work-Highlights .work .work-content

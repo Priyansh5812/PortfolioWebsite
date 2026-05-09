@@ -15,7 +15,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/style.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js" integrity="sha512-eYPrm8TgYWg3aa6tvSRZjN4v0Z9Qx69q3RhfSj+Mf89QqwOMqmwSlsVqfp4N8NVAcZe/YeUhh9x/nM2CAOp6cA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js"
+        integrity="sha512-eYPrm8TgYWg3aa6tvSRZjN4v0Z9Qx69q3RhfSj+Mf89QqwOMqmwSlsVqfp4N8NVAcZe/YeUhh9x/nM2CAOp6cA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <title>My Portfolio</title>
 
@@ -38,7 +40,7 @@
                 <span>Linkedin</span>
             </a>
 
-            <a id= "mail" href="mailto:priyanshkrkashyap@gmail.com" target="_blank">
+            <a id="mail" href="mailto:priyanshkrkashyap@gmail.com" target="_blank">
                 <i class="fa-solid fa-envelope"></i>
                 <span>Email</span>
             </a>
@@ -197,13 +199,82 @@
                 <div class="work">
                     <div class="work-content">
                         <p>
-                            The core gameplay revolves around generating optimized letter grids that guarantee multiple
-                            valid word paths, balancing randomness with deterministic constraints to ensure consistent
-                            challenge quality.This project demonstrates
-                            strong ownership across gameplay logic, backend integration, and live content
-                            pipelines—built with a production mindset rather than a prototype approach.
+                            A word-based puzzle game built around generating optimized letter grids that guarantee
+                            multiple valid word paths while maintaining balanced challenge quality. The project focuses
+                            on scalable gameplay systems, using Trie and HashMap-based structures for fast real-time
+                            word validation and search.
+
+                            Built with a production-oriented approach, the game integrates Firebase Firestore, Cloud
+                            Functions, and Authentication for leaderboards, progression tracking and live event
+                            management. The architecture is designed to support live-ops, Ads, and In-App Purchases
+                            without requiring major changes to the core systems.
                         <div class="hidden-text-1">
-                            Word validation and search are implemented using efficient <span class="keywords">Trie and
+                            <h2 class="work-problems-heading">Problems I solved :</h2>
+                            <p class="work-problem">
+                                Q : I wanted to make sure that the process of checking of word should take minimal time
+                                and space complexity ?
+                            </p>
+                            <p class="work-solution">
+                                Soln : I added each word from my word registry in a trie such that every work can be
+                                found while traversing the nodes in the sequential manner of the letters in the original
+                                word. &nbsp;
+                                After doing this, I was able to reuse the nodes of the trie to other words which shared
+                                the same sequence of letters.
+
+                            <h3>Pros:</h3>
+                            <p class="work-solution-pros">
+                                - Time Complexity of checking existence of a word O(L) , L => Length of the Word <br>
+                                - Space Complexity of having a trie : O(N . AL) => N is number of words and AL is
+                                average length of the words <br>
+                            </p>
+                            <h3>Cons:</h3>
+                            <p class="work-solution-cons">
+                                - Heavy usage of heap memory therefore it includes a lot of pointer dereferencing and
+                                chasing under the hood <br>
+                                - The process of storing the words in the form of a trie does not align with the DOD
+                                principles <br>
+                            </p>
+                            </p>
+                            <br>
+                            <p class="work-problem">
+                                Q: In the beginning of the game, I needed to added a tutorial such that the flow of it
+                                can be easily manipulated without touching the code ?
+                            </p>
+                            <p class="work-solution">
+                                Soln: For a modular tutorial system, I divided my tutorial into individual states as
+                                Scriptable Objects / Data Assets.
+                                Every state contains an array which gets traversed sequentially and upon every array
+                                index there is a data of <b>"What to do ?"</b> as enum.
+                                Every enum acts as a "type" of what is required to be done and when and how.
+                                Following the conveyed approach I was able to make a modular tutorial with reusable
+                                states.
+                            </p>
+                            <br>
+                            <p class="work-problem">
+                                Q: I wanted a minimal read/write cost approach for my game's leaderboard system
+                            </p>
+
+                            <p class="work-solution">
+                                Soln: My leaderboard system was weekly and by the end of the week the leaderboard gets a
+                                reset.
+                                For my leaderboard system I took help of <span class="keywords">Cloud Functions</span>
+                                which was responsible for sorting automating the leaderboard process.
+                                The main problem was getting a sorted list of members according to their scores which if
+                                was done by firebase, the cost would have increased exponentially with the game's player
+                                count.
+                                <br><b style="color: white">Per Person cost = Read Cost of all the existing players</b>.
+                                <br>
+                                A better approach I adopted was the sorting part can be done by the Cloud Functions and
+                                update it on a separate node. And for the sake of a better data reflection on my game,
+                                the frequency of this happening was everyday.
+                                So the new cost was:
+                                <br><b style="color: white">Per person cost = 1 Read of the sorted leaderboard node</b>
+                                <br>
+                                And the best part was, it does gets scale with the user count !!!
+
+                            </p>
+
+                            <!-- Word validation and search are implemented using efficient <span class="keywords">Trie and
                                 Hashmap-based structures</span>, enabling fast lookups and
                             smooth real-time gameplay even under tight time constraints.
                             From a systems perspective, the project emphasizes backend-driven design. <span
@@ -219,7 +290,7 @@
                             (IAP) and Ads, designed to coexist without disrupting core gameplay flow.
                             <br>
                             The architecture prioritizes modularity and scalability, allowing new game modes, events,
-                            and features to be layered without restructuring the core systems.
+                            and features to be layered without restructuring the core systems. -->
                         </div>
                         </p>
                         <button class="show-more-btn-1"><span>Show More</span></button>
@@ -229,14 +300,14 @@
                                 target="_blank">
                                 <i class="fa-brands fa-github"></i>
                             </a>
-                            
+
                             <a href="https://play.google.com/store/apps/details?id=com.priyansh.seasonalwordquest"
                                 target="_blank">
                                 <i class="fa-brands fa-google-play" style="color:greenyellow"></i>
                             </a>
-                            
-                            
-                            
+
+
+
 
                         </div>
                         <div class="competencies">
@@ -467,7 +538,9 @@
                         <li>VR Simulations</li>
 
                     </ul>
-                    <a id ="mail-freelance" href="mailto:priyanshkrkashyap@gmail.com?subject=Enquiry%20for%20a%20freelance%20project." target="_blank">
+                    <a id="mail-freelance"
+                        href="mailto:priyanshkrkashyap@gmail.com?subject=Enquiry%20for%20a%20freelance%20project."
+                        target="_blank">
                         <p>Request a Quote</p>
                         <i class="fa-solid fa-angle-right"></i>
                     </a>
@@ -485,7 +558,9 @@
                         <li>Gameplay Engineer</li>
                         <li>Systems Engineer</li>
                     </ul>
-                    <a id = "mail-fulltime" href="mailto:priyanshkrkashyap@gmail.com?subject=Job%20Proposal%20for%20[Enter%20Designation]." target="_blank">
+                    <a id="mail-fulltime"
+                        href="mailto:priyanshkrkashyap@gmail.com?subject=Job%20Proposal%20for%20[Enter%20Designation]."
+                        target="_blank">
                         <p>Schedule an Interview</p>
                         <i class="fa-solid fa-angle-right"></i>
                     </a>
@@ -518,7 +593,7 @@
             </a> -->
         </div>
     </main>
+    <script src="brain/main.js" defer></script>
 </body>
-<script src="brain/main.js"></script>
 
 </html>
