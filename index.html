@@ -211,67 +211,70 @@
                         <div class="hidden-text-1">
                             <h2 class="work-problems-heading">Problems I solved :</h2>
                             <p class="work-problem">
-                                Q : I wanted to make sure that the process of checking of word should take minimal time
-                                and space complexity ?
+                                Q : I wanted the process of checking whether a word exists to be as fast and memory-efficient as possible
                             </p>
                             <p class="work-solution">
-                                Soln : I added each word from my word registry in a trie such that every work can be
-                                found while traversing the nodes in the sequential manner of the letters in the original
-                                word. &nbsp;
-                                After doing this, I was able to reuse the nodes of the trie to other words which shared
-                                the same sequence of letters.
+                                Soln : I stored all words inside a special tree-like structure called a Trie. Words that
+                                shared similar starting letters were able to reuse the same paths in memory instead of
+                                storing duplicate data again and again. &nbsp;
+                                This allowed the game to quickly check whether a word exists by going letter by letter
+                                in sequence.
 
                             <h3>Pros:</h3>
                             <p class="work-solution-pros">
-                                - Time Complexity of checking existence of a word O(L) , L => Length of the Word <br>
-                                - Space Complexity of having a trie : O(N . AL) => N is number of words and AL is
-                                average length of the words <br>
+                                - Very fast word lookup even with thousands of words <br>
+                                - Shared letter paths reduced unnecessary duplicate storage <br>
                             </p>
                             <h3>Cons:</h3>
                             <p class="work-solution-cons">
-                                - Heavy usage of heap memory therefore it includes a lot of pointer dereferencing and
-                                chasing under the hood <br>
-                                - The process of storing the words in the form of a trie does not align with the DOD
-                                principles <br>
+                                - Uses more dynamic memory internally <br>
+                                - The structure is harder to organize efficiently in memory compared to simple arrays
+                                <br>
                             </p>
                             </p>
                             <br>
                             <p class="work-problem">
-                                Q: In the beginning of the game, I needed to added a tutorial such that the flow of it
-                                can be easily manipulated without touching the code ?
+                                Q: I needed a tutorial system whose flow could be changed without modifying code.
                             </p>
                             <p class="work-solution">
-                                Soln: For a modular tutorial system, I divided my tutorial into individual states as
-                                Scriptable Objects / Data Assets.
-                                Every state contains an array which gets traversed sequentially and upon every array
-                                index there is a data of <b>"What to do ?"</b> as enum.
-                                Every enum acts as a "type" of what is required to be done and when and how.
-                                Following the conveyed approach I was able to make a modular tutorial with reusable
-                                states.
+                                Soln: I designed the tutorial as reusable data-driven steps instead of hardcoded logic.
+                                Each tutorial section contained a sequence of actions like: <br>
+                            <ul>
+                                <li>- Show message</li>
+                                <li>- Highlight object</li>
+                                <li>- Wait for player input</li>
+                                <li>- Trigger animation</li>
+                            </ul>
+                            <p class="work-solution">
+                                Because the tutorial logic was stored as editable data assets, the flow could easily be
+                                rearranged or expanded without programming changes.</p>
                             </p>
                             <br>
                             <p class="work-problem">
-                                Q: I wanted a minimal read/write cost approach for my game's leaderboard system
+                                Q: I wanted a minimal read/write cost approach for my game's leaderboard system.
                             </p>
 
                             <p class="work-solution">
-                                Soln: My leaderboard system was weekly and by the end of the week the leaderboard gets a
-                                reset.
-                                For my leaderboard system I took help of <span class="keywords">Cloud Functions</span>
-                                which was responsible for sorting automating the leaderboard process.
-                                The main problem was getting a sorted list of members according to their scores which if
-                                was done by firebase, the cost would have increased exponentially with the game's player
-                                count.
-                                <br><b style="color: white">Per Person cost = Read Cost of all the existing players</b>.
-                                <br>
-                                A better approach I adopted was the sorting part can be done by the Cloud Functions and
-                                update it on a separate node. And for the sake of a better data reflection on my game,
-                                the frequency of this happening was everyday.
-                                So the new cost was:
-                                <br><b style="color: white">Per person cost = 1 Read of the sorted leaderboard node</b>
-                                <br>
-                                And the best part was, it does not scale with the user count !!!
+                                Soln: The leaderboard refreshed weekly. Instead of asking the database to sort all
+                                players every time someone opened the leaderboard, I used Cloud Functions to handle
+                                sorting separately in the background.
 
+                                The sorted leaderboard was then stored in a dedicated location that players could
+                                directly read from.
+                            <h3>Pros:</h3>
+
+
+                            <ul class="work-solution-pros">
+                                <li>- Only one lightweight read was needed per player</li>
+                                <li>- Server cost stayed predictable even as player count increased</li>
+                                <li>- Better scalability for large audiences</li>
+                            </ul>
+
+                            <p class="work-solution">
+                                The system avoided expensive real-time sorting operations and remained cost-efficient as
+                                the
+                                game grew.
+                            </p>
                             </p>
 
                             <!-- Word validation and search are implemented using efficient <span class="keywords">Trie and
